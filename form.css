@@ -1,0 +1,87 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+:root{
+    --primary-color:rgb(235, 235, 235);
+    --secondary-color:#212121;
+    --box-color:#edf2fc;
+    --table-color:#f1dfc3;
+}
+.dark-theme{
+    --primary-color:rgb(25, 24, 30);
+    --secondary-color:#fdfdfd;
+    --box-color:rgb(32, 35, 44);
+    --table-color:#caa46a;
+}
+
+body{
+    background-color: var(--primary-color);
+}
+
+h1{
+    color:rgb(194, 47, 47);
+    text-align: center;
+    text-decoration: underline rgb(194, 47, 47) 2px;
+}
+h2{
+    color:indianred;
+    text-align: center;
+    text-decoration: underline indianred 2px;
+}
+
+.hero{
+    height:15vh;
+    width: 100%;
+    background: #d8ad7b;
+    font-family: sans-serif;
+    position:relative;
+}
+nav{
+    width: 84%;
+    margin:auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 150%;
+}
+.logo{
+    cursor:pointer;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style:none;
+    margin:10px 20px;
+}
+nav ul li a{
+    text-decoration: none;
+    color:#212121;
+}
+nav ul li a:hover{
+    color:#ffffff;
+    text-decoration: underline #ffffff 2px;
+}
+
+.formulario{
+    width: 75%;
+    text-align:justify;
+    font-size: 150%;
+    background-color: var(--box-color);
+    padding: 15px;
+    margin: 0 auto;
+    color:var(--secondary-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.30);
+}
+
+#icon{
+    width: 30px;
+    cursor: pointer;
+}
+nav ul{
+    flex:1;
+    text-align: right;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" type="text/css" href="form.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario</title>
+    </head>
+
+    <body>
+        <div class="hero">
+            <nav>
+                <img src="img/logo.png" width="100" height="100" class="logo">
+                <ul>
+                    <li><a href="index.html">Volver al incio</a></li>
+                </ul>
+                <img src="img/moon.png" id="icon">
+            </nav>
+        </div>
+        <br>
+
+        <div class="formulario">
+            <h2>Formulario</h2>
+            <h3>Ingresa tus datos para poder pedir una pizza</h3><br>
+            <form onsubmit="" id="datos" oninput="valor.value=parseInt(range.value)">
+                <p>Escribe tu nombre: <input type="text" id="nombre" name="nombre" size="20" required/></p>
+                <p>Escribe tus apellidos: <input type="text" id="apellidos" name="apellidos" size="30" required/></p>
+    
+                <p>
+                    Ciudad:
+                    <select id="ciudad" name="Ciudad">
+                        <option value="Ciudad Juarez">Ciudad Juarez</option>
+                        <option value="Chihuahua">Chihuahua</option>
+                        <option value="Cuahutemoc">Cuahutemoc</option>
+                        <option value="San francisco del oro">San francisco del oro</option>
+                    </select>
+                </p>
+    
+                <p>
+                    Género:
+                    <input type="radio" id="F" name="genero" value="femenino" checked="checked">Femenino
+                    <input type="radio" id="M" name="genero" value="masculino">Masculino
+                </p>
+    
+                <p>
+                    Edad:
+                    <input type="range" id="edad" name="range" min="0" max="100" value="0"></input>
+                    <output for="valor" name="valor">0</output>
+                </p>
+    
+                <p><input type="submit" id="btn" name="btn" value="Enviar"></p>
+    
+                <h3>Tus datos:</h3>
+                <h3 id="respuestaNombre" class="text-center fw-light"></h3>
+                <h3 id="respuestaApellidos" class="text-center fw-light"></h3>
+                <h3 id="respuestaCiudad" class="text-center fw-light"></h3>
+                <h3 id="respuestaGenero" class="text-center fw-light"></h3>
+                <h3 id="respuestaEdad" class="text-center fw-light"></h3>
+            </form>
+        </div>
+
+        <script>
+            const formulario=document.querySelector("#datos");
+            formulario.addEventListener("submit",validarFormulario);
+            function validarFormulario(e){
+                e.preventDefault();
+
+                const radioButtons = document.querySelectorAll('input[name="genero"]');
+                let GeneroSeleccionado;
+                for(const radioButton of radioButtons){
+                    if(radioButton.checked){
+                        GeneroSeleccionado=radioButton.value;
+                        break;
+                    }
+                }
+
+                const nombre=document.querySelector("#nombre").value;
+                const apellidos=document.querySelector("#apellidos").value;
+                const ciudad=document.querySelector("#ciudad").value;
+                const edad=document.querySelector("#edad").value;
+    
+                const respuestaNombre=document.getElementById("respuestaNombre");
+                respuestaNombre.textContent=`Nombre: ${nombre}`
+                const respuestaApellidos=document.getElementById("respuestaApellidos");
+                respuestaApellidos.textContent=`Apellidos: ${apellidos}`
+                const respuestaCiudad=document.getElementById("respuestaCiudad");
+                respuestaCiudad.textContent=`Ciudad: ${ciudad}`
+                const respuestaGenero=document.getElementById("respuestaGenero");
+                respuestaGenero.textContent=`Genero: ${GeneroSeleccionado}`
+                const respuestaEdad=document.getElementById("respuestaEdad");
+                respuestaEdad.textContent=`Edad: ${edad}`
+            }
+
+            var icon =document.getElementById("icon");
+            icon.onclick=function(){
+                document.body.classList.toggle("dark-theme");
+                if(document.body.classList.contains("dark-theme")){
+                    icon.src="img/sun.png";
+                }else{
+                    icon.src="img/moon.png";
+                }
+            }
+        </script>
+    </body>
+</html>
